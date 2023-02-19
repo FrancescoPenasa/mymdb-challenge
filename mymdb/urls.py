@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('cast/', include('cast.urls')),
+    path('movies/', include('movies.urls')),
     path('admin/', admin.site.urls),
 ]
