@@ -1,5 +1,6 @@
 import datetime
-
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.utils import timezone
 
@@ -33,3 +34,21 @@ class Character(models.Model):
 
     def __str__(self):
         return self.role + " : " + self.person.surname
+
+
+class Review(models.Model):
+    """
+    recensioni sia di `Film` che di `Person` e `Character` 
+    tramite una generic foreign key (limitata ai soli modelli sopra esplicitati)
+    """
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey()
+
+    content = models.TextField()
+
+    created_at = models.DateTimeField('date create')
+    updated_at = models.DateTimeField('date update')
+
+    def __str__(self):
+        return str(self.content_type)
