@@ -11,4 +11,6 @@ def index(request):
 
 def detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
-    return render(request, 'cast/detail.html', {'cast': movie})
+    cast = Character.objects.filter(movie_id__exact=movie_id).select_related('movie')
+
+    return render(request, 'cast/detail.html', {'cast': cast})

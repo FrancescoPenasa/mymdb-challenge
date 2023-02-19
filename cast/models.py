@@ -32,4 +32,4 @@ class Character(models.Model):
     updated_at = models.DateTimeField('date update')
 
     def __str__(self):
-        return self.movie.title + " : " + self.person.surname
+        return self.role + " : " + self.person.surname

@@ -1,1 +1,9 @@
-{{ cast }}
+{% if cast %}
+    <ul>
+    {% for c in cast %}
+        <li>{{ c }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No cast are available.</p>
+{% endif %}
