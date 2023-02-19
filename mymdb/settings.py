@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'movies.apps.MoviesConfig',
     'cast.apps.CastConfig',
+    'reviews.apps.ReviewsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
