@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 
-from .models import Person, Movie, Character
+from base.models import Person, Movie, Character
 
 def index(request):
     latest_movie_list = Movie.objects.order_by('-updated_at')[:5]
