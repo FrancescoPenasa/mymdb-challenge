@@ -8,8 +8,8 @@ from django.utils import timezone
 class Person(models.Model):
     name = models.CharField(max_length=200)
     surname = models.CharField(max_length=200)
-    created_at = models.DateTimeField('date create')
-    updated_at = models.DateTimeField('date update')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.surname + " " + self.name
@@ -18,8 +18,8 @@ class Person(models.Model):
 class Movie(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    created_at = models.DateTimeField('date create')
-    updated_at = models.DateTimeField('date update')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
         return self.title
@@ -29,8 +29,8 @@ class Character(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     role = models.CharField(max_length=200)
-    created_at = models.DateTimeField('date create')
-    updated_at = models.DateTimeField('date update')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.role + " : " + self.person.surname
@@ -47,8 +47,8 @@ class Review(models.Model):
 
     content = models.TextField()
 
-    created_at = models.DateTimeField('date create')
-    updated_at = models.DateTimeField('date update')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.content_type)

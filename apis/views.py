@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from rest_framework import permissions
-from .serializers import UserSerializer, GroupSerializer
-
+from base.models import Person
+from rest_framework import viewsets, permissions
+from rest_framework.decorators import api_view
+from .serializers import UserSerializer, GroupSerializer, PersonSerializer
+import datetime
 
 class UserViewSet(viewsets.ModelViewSet):
     """
@@ -20,3 +21,12 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+
+class PersonViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows persons to be viewed.
+    """
+    queryset = Person.objects.all()
+    serializer_class = PersonSerializer
+    permission_classes = [permissions.AllowAny]
