@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User, Group
-from base.models import Person, Movie
+from base.models import Person, Movie, Character
 from rest_framework import viewsets, permissions
 from rest_framework.decorators import api_view
-from .serializers import UserSerializer, GroupSerializer, PersonSerializer, MovieSerializer
+from .serializers import UserSerializer, GroupSerializer, PersonSerializer, MovieSerializer, CharacterSerializer
 import datetime
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -33,8 +33,16 @@ class PersonViewSet(viewsets.ModelViewSet):
 
 class MovieViewSet(viewsets.ModelViewSet):
     """
-    API endpoint that allows persons to be viewed.
+    API endpoint that allows movie to be viewed.
     """
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+    permission_classes = [permissions.AllowAny]
+
+class CharacterViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows character to be viewed.
+    """
+    queryset = Character.objects.all()
+    serializer_class = CharacterSerializer
     permission_classes = [permissions.AllowAny]

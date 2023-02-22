@@ -23,6 +23,7 @@ router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'persons', views.PersonViewSet)
 router.register(r'movie', views.MovieViewSet)
+router.register(r'characters', views.CharacterViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
