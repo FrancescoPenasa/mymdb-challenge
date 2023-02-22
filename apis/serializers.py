@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from base.models import Person, Movie, Character
+from base.models import Person, Movie, Character, Review
 from rest_framework import serializers
 
 
@@ -28,3 +28,8 @@ class CharacterSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Character
         fields = ['url', 'role']
+
+class ReviewSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Review
+        fields = ['url', 'content']
