@@ -23,10 +23,10 @@ Creazione di una piattaforma per la gestione di film
   - `Person`: anagrafica dei componenti del cast (registi, scenografi, attori, ecc.)
   - `Movie`: anagrafica del film con titolo, descrizione, ecc.
   - `Character`: attori che compaiono nel film, con foreignkey verso `Person` e `Movie` per indicare che un certo attore compare in un certo film con un nickname
-  - `Review`: recensioni sia di `Film` che di `Person` e `Character` tramite una generic foreign key (limitata ai soli modelli sopra esplicitati)
+  - `Review`: recensioni sia di `Movie` che di `Person` e `Character` tramite una generic foreign key (limitata ai soli modelli sopra esplicitati)
 - Tutti i modelli dovranno avere i due campi `created_at` e `updated_at` per conoscere la data di creazione e modifica del record
 - Aggiunta di API rest per la gestione (crezione, modifica, modifica parziale, ecc.) delle varie entità di tutti i modelli e pubblicazione di una sezione di documentazione delle API tramite Swagger UI (si consiglia l'utilizzo di Django Rest Framework e di drf-spectacular o drf-yasg)
-  - Le liste delle api dei modelli `Film`, `Person` e `Character` dovranno contenere una lista di recensioni
+  - Le liste delle api dei modelli `Movie`, `Person` e `Character` dovranno contenere una lista di recensioni
 - Creazione di un'interfaccia frontend utilizzando il framework [Webix](https://webix.com) dove verranno mostrati i vari film presenti a catalogo e potranno essere aggiunti tramite form specifica
 
 ## Esempi API
