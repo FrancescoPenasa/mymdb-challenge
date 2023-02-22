@@ -19,12 +19,12 @@ from rest_framework import routers
 from apis import views
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'persons', views.PersonViewSet)
-router.register(r'movie', views.MovieViewSet)
-router.register(r'characters', views.CharacterViewSet)
-router.register(r'reviews', views.ReviewViewSet)
+router.register(r'api/v1/users', views.UserViewSet)
+router.register(r'api/v1/groups', views.GroupViewSet)
+router.register(r'api/v1/persons', views.PersonViewSet)
+router.register(r'api/v1/movies', views.MovieViewSet)
+router.register(r'api/v1/characters', views.CharacterViewSet)
+router.register(r'api/v1/reviews', views.ReviewViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
